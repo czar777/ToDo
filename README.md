@@ -27,3 +27,23 @@ CRUD-приложение для ведения дел, заметок, зада
 
 * Трёхслойная
   архитектура – [Controller](src/main/java/com/testtask/todo/controller), [Service](src/main/java/com/testtask/todo/service), [Repository](src/main/java/com/testtask/todo/repository)
+
+  ## Actions
+### Task
+
+    URL                                           HTTP Method        Operation
+    
+    /tasks/                                       POST               Создать задачу
+    /tasks/{id}                                   GET                Получить задачу по Id
+    /tasks/name                                   GET                Получить задачу по названию
+    /tasks/{id}                                   PUT                Обновиь задачу
+    /tasks/{id}                                   DELETE             Удалить задачу
+    /tasks/page/{offset}/limit/{limit}            GET                Получить все задачи
+    
+# Тесты
+[Перейти к тестам](src/test/java/org/example)
+
+* SpringBootTest
+* MockMvc
+* Testcontainers
+* JUnit5
