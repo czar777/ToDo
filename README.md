@@ -21,7 +21,7 @@ CRUD-приложение для ведения дел, заметок, зада
   postgres
 * В коде продемонстрирована работа с JPA (Hibernate)
   
-* ## Swagger-UI: http://localhost:8080/swagger-ui/index.html
+## Swagger-UI: http://localhost:8080/swagger-ui/index.html
 
 * # Код
 
