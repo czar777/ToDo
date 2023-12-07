@@ -41,7 +41,7 @@ CRUD-приложение для ведения дел, заметок, зада
     /tasks/page/{offset}/limit/{limit}            GET                Получить все задачи
     
 # Тесты
-[Перейти к тестам](src/test/java/org/example)
+[Перейти к тестам](src/test/java/com/testtask/todo/)
 
 * SpringBootTest
 * MockMvc
