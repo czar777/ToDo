@@ -12,14 +12,17 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "tasks")
@@ -33,7 +36,6 @@ public class Task {
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
-
 
     @Column(name = "description", length = 1000)
     private String description;
@@ -56,4 +58,18 @@ public class Task {
     @Column(name = "priority")
     private Priority priority;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(id, task.id) && Objects.equals(name, task.name) && Objects.equals(description, task.description)
+                && Objects.equals(createdAt, task.createdAt) && Objects.equals(updatedAt, task.updatedAt)
+                && status == task.status && priority == task.priority;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, createdAt, updatedAt, status, priority);
+    }
 }

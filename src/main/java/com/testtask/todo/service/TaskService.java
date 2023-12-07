@@ -36,6 +36,7 @@ public class TaskService {
         Task task = taskMapper.toEntity(taskDto);
         Task taskSaved = taskRepository.save(task);
         taskDto = taskMapper.toDto(taskSaved);
+
         log.info("Task created: {}", taskDto);
         return taskDto;
     }
@@ -51,6 +52,7 @@ public class TaskService {
     public TaskDto getTask(Long id) {
         Task task = getTaskById(id);
         TaskDto taskDto = taskMapper.toDto(task);
+
         log.info("Task found: {}", taskDto);
         return taskDto;
     }
@@ -65,8 +67,9 @@ public class TaskService {
     @Transactional(readOnly = true)
     public TaskDto getTaskByName(String name) {
         Task task = taskRepository.findByName(name)
-                .orElseThrow(() -> new EntityNotFoundException("Task not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Task with name " + name + " not found"));
         TaskDto taskDto = taskMapper.toDto(task);
+
         log.info("Task found: {}", taskDto);
         return taskDto;
     }
@@ -78,6 +81,7 @@ public class TaskService {
      * @param taskDto обновленные данные задачи
      * throws EntityNotFoundException если задача не найдена
      */
+    @Transactional
     public void updateTask(long id, TaskDto taskDto) {
         Task task = getTaskById(id);
         taskMapper.update(taskDto, task);
@@ -113,6 +117,6 @@ public class TaskService {
 
     private Task getTaskById(Long id) {
         return taskRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Task not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Task with id " + id + " not found"));
     }
 }
