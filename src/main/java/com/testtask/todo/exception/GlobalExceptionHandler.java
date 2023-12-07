@@ -13,6 +13,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * Класс для обработки глобальных исключений.
+ * @author Sergey Gerasimov
+ */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
