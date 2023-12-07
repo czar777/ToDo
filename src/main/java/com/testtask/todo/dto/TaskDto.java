@@ -3,6 +3,7 @@ package com.testtask.todo.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.testtask.todo.entity.Priority;
 import com.testtask.todo.entity.Status;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,8 +16,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Сущность задачи")
 public class TaskDto {
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     @NotNull(message = "Name is required")

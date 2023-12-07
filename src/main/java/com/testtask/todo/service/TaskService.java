@@ -63,10 +63,12 @@ public class TaskService {
     }
 
     @Transactional(readOnly = true)
-    public List<Task> getAllTasks(Integer offset, Integer limit) {
+    public List<TaskDto> getAllTasks(Integer offset, Integer limit) {
         List<Task> tasks = taskRepository.findAll(PageRequest.of(offset, limit)).getContent();
+        List<TaskDto> taskDtos = taskMapper.toDtoList(tasks);
+
         log.info("Tasks found: {}", tasks);
-        return tasks;
+        return taskDtos;
     }
 
     private Task getTaskById(Long id) {
