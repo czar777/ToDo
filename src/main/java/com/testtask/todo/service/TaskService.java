@@ -65,9 +65,7 @@ public class TaskService {
     @Transactional(readOnly = true)
     public TaskDto getTaskByName(String name) {
         Task task = taskRepository.findByName(name)
-                .orElseThrow(() -> {
-                    log.warn("Task by name {} not found", name);
-                    throw new EntityNotFoundException("Task not found");});
+                .orElseThrow(() -> new EntityNotFoundException("Task not found"));
         TaskDto taskDto = taskMapper.toDto(task);
         log.info("Task found: {}", taskDto);
         return taskDto;
@@ -115,8 +113,6 @@ public class TaskService {
 
     private Task getTaskById(Long id) {
         return taskRepository.findById(id)
-                .orElseThrow(() -> {
-                    log.warn("Task by id {} not found", id);
-                    throw new EntityNotFoundException("Task not found");});
+                .orElseThrow(() -> new EntityNotFoundException("Task not found"));
     }
 }
