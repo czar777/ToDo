@@ -17,6 +17,7 @@ public interface TaskMapper {
     Task toEntity(TaskDto taskDto);
 
     @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "id", ignore = true)
     void update(TaskDto taskDto, @MappingTarget Task task);
 
     List<TaskDto> toDtoList(List<Task> tasks);

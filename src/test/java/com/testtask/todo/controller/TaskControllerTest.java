@@ -82,7 +82,6 @@ class TaskControllerTest {
         }
     }
 
-
     @Test
     void createTask() throws Exception {
         String json = objectMapper.writeValueAsString(taskDto);
