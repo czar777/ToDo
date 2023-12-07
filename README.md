@@ -23,12 +23,12 @@ CRUD-приложение для ведения дел, заметок, зада
   
 ## Swagger-UI: http://localhost:8080/swagger-ui/index.html
 
-* # Код
+# Код
 
 * Трёхслойная
   архитектура – [Controller](src/main/java/com/testtask/todo/controller), [Service](src/main/java/com/testtask/todo/service), [Repository](src/main/java/com/testtask/todo/repository)
 
-  ## Actions
+## Actions
 ### Task
 
     URL                                           HTTP Method        Operation
