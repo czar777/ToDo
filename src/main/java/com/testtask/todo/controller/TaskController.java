@@ -81,7 +81,8 @@ public class TaskController {
     @PutMapping("/{id}")
     @Operation(summary = "Обновление задачи", description = "Обновляет задачу по id")
     @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Принимает задачу, которую нужно создать")
-    public void updateTask(@PathVariable @Parameter(description = "Id задачи") long id, @RequestBody @Valid TaskDto taskDto) {
+    public void updateTask(@PathVariable @Parameter(description = "Id задачи") long id,
+                           @RequestBody @Valid TaskDto taskDto) {
         taskService.updateTask(id, taskDto);
     }
 
